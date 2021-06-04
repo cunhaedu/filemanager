@@ -41,6 +41,8 @@ build/Release
 node_modules/
 jspm_packages/
 
+uploads/
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
@@ -119,6 +121,6 @@ dist
 package-lock.json
 .history
 .idea
-.env.docker.dev.yml
 .env.docker.prod.yml
+.env.docker.dev.yml
 .env.docker.qa.yml
