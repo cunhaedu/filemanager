@@ -3,7 +3,7 @@ import IFileDTO from '@shared/dtos/IFileDTO';
 import { NextFunction, Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-export default class LayoutController {
+export default class ImageController {
   public async upload(
     req: Request,
     res: Response,

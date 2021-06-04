@@ -1,10 +1,7 @@
-import { inject, injectable } from 'tsyringe';
-
-import Image from '@modules/image/infra/typeorm/entities/SysImage';
-import IImageRepository from '@modules/image/repositories/IImageRepository';
+import SysFile from '@modules/image/infra/typeorm/entities/SysFile';
 import ImageRepository from '@modules/image/infra/typeorm/repositories/ImageRepository';
-import { AppError } from 'ekaizen-framework/errors';
-import { ICompanyDTO } from 'ekaizen-framework/dtos';
+import IImageRepository from '@modules/image/repositories/IImageRepository';
+import { inject, injectable } from 'tsyringe';
 
 @injectable()
 export default class FindImageService {
@@ -13,11 +10,11 @@ export default class FindImageService {
     private imageRepository: IImageRepository,
   ) {}
 
-  public async execute(id: number, company: ICompanyDTO): Promise<Image> {
-    const image = await this.imageRepository.findById(id, company.id);
+  public async execute(id: string): Promise<SysFile> {
+    const image = await this.imageRepository.findById(id);
 
     if (!image) {
-      throw new AppError([AppError.commons.NOT_FOUND]);
+      throw new Error('file not found');
     }
 
     return image;
