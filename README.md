@@ -1,5 +1,5 @@
 <p align="left">
-   <img src=".github/ibm_cos.png"/>
+   <img src=".github/ibm_cos.png" width="190" height="200"/>
 </p>
 
 # Filemanager
