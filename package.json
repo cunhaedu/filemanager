@@ -1,0 +1,7 @@
+{
+  "name": "filemanager",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Eduardo Assunção <cunhaeduardo1231@gmail.com>",
+  "license": "MIT"
+}
