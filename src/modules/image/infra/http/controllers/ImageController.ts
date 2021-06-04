@@ -14,8 +14,8 @@ export default class LayoutController {
 
       const files = requestImages.map(image => {
         return {
-          key: image.key,
-          url: image.location,
+          key: image.key ?? image.filename,
+          url: image.location ?? '',
           name: image.originalname
         } as IFileDTO;
       });
