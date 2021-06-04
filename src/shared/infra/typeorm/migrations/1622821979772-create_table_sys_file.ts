@@ -15,9 +15,19 @@ export default class createTableSysFile1622821979772 implements MigrationInterfa
             generationStrategy: 'uuid',
           },
           {
-            name: 'link',
+            name: 'name',
+            type: 'varchar',
+            isNullable: true,
+          },
+          {
+            name: 'key',
             type: 'varchar',
             isNullable: false,
+          },
+          {
+            name: 'url',
+            type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'created_at',

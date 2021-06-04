@@ -3,7 +3,6 @@ export default (): {
   PORT: number;
   /** @default 'v1/UNKNOWN' */
   BASE_URL: string;
-  /** @default 'false' */
 } => {
   process.env.NODE_DEBUG = process.env.API_DEBUG_LEVEL?.toUpperCase();
   return {
