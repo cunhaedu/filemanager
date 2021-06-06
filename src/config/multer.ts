@@ -9,6 +9,8 @@ export default (): {
   AWS_DEFAULT_REGION: string
   /** @default '' */
   AWS_BUCKET_NAME: string
+  /** @default 'local' */
+  STORAGE_TYPE: string
 } => {
   process.env.NODE_DEBUG = process.env.API_DEBUG_LEVEL?.toUpperCase();
   return {
@@ -17,5 +19,6 @@ export default (): {
     AWS_ENDPOINT: process.env.AWS_ENDPOINT ?? '',
     AWS_DEFAULT_REGION: process.env.AWS_DEFAULT_REGION ?? '',
     AWS_BUCKET_NAME: process.env.AWS_BUCKET_NAME ?? '',
+    STORAGE_TYPE: process.env.STORAGE_TYPE ?? 'local',
   };
 };

@@ -2,7 +2,6 @@ import ImageRepository from '@modules/image/infra/typeorm/repositories/ImageRepo
 import IImageRepository from '@modules/image/repositories/IImageRepository';
 import { inject, injectable } from 'tsyringe';
 
-
 @injectable()
 export default class DeleteImageService {
   constructor(

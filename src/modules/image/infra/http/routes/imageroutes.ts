@@ -21,6 +21,6 @@ imageRouter.post(
 //   multer.array('image'),
 //   imageController.update,
 // );
-// imageRouter.delete('/uploads/images/:id', imageController.delete);
+imageRouter.delete('/uploads/images/:id', imageController.delete);
 
 export default imageRouter;

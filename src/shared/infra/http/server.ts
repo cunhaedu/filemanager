@@ -1,5 +1,8 @@
 import app from './app';
+import api from '@config/api';
 
-app.listen(3333, () => {
+const apiConfig = api();
+
+app.listen(apiConfig.PORT, () => {
   console.log('Server is Running');
 })

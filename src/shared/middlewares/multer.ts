@@ -29,7 +29,7 @@ const storageTypes = {
     }
   }),
   local: multer.diskStorage({
-    destination: join(process.cwd(), 'uploads/images'),
+    destination: join(process.cwd(), 'uploads'),
     filename: (req, file, cb) => {
       crypto.randomBytes(8, (err, hash) => {
         if (err) cb(err, '');
@@ -53,7 +53,7 @@ const storageTypes = {
 export default (size: number, fileFormat: string[]): Multer => {
   return multer({
     limits: { fileSize: size * 1024 },
-    storage: storageTypes.s3,
+    storage: ibmCloudStorageConfig.STORAGE_TYPE === 'local' ? storageTypes.local : storageTypes.s3,
     fileFilter: (req, file, cb) => {
       const regex = new RegExp(`\\.(${fileFormat.join('|')})$`);
       if (!file.originalname.match(regex)) {
