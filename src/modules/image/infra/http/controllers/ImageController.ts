@@ -15,20 +15,17 @@ export default class ImageController {
   ): Promise<void> {
     try {
       const requestImages = req.files as Express.MulterS3.File[];
+      let files: IFileDTO[] = [];
 
-      const files = requestImages.map(image => {
-        const file =  {
-          key: image.key ?? image.filename,
-          url: image.location ?? '',
-          name: image.originalname
-        } as IFileDTO;
-
-        if (file.url === '') {
-          file.url = `${appConfig.APP_URL}/files/${file.key}`
-        }
-
-        return file
-      });
+      if (requestImages && requestImages.length) {
+        files = requestImages.map(image => {
+          return {
+            key: image.key ?? image.filename,
+            url: image.location ?? `${appConfig.APP_URL}/files/${image.key}`,
+            name: image.originalname
+          } as IFileDTO;
+        });
+      }
 
       const service = container.resolve(CreateImageService);
 
