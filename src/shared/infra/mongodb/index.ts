@@ -6,7 +6,7 @@ const mongodbConfig = mongodb();
 mongoose.Promise = global.Promise;
 
 const connectionString =
-`mongodb+srv://${mongodbConfig.USER}:${mongodbConfig.PASSWORD}@cl-filemanager.95geh.mongodb.net/${mongodbConfig.BASE}?retryWrites=true&w=majority`
+  `mongodb://${mongodbConfig.USER}:${mongodbConfig.PASSWORD}@${mongodbConfig.HOST}/${mongodbConfig.BASE}`;
 
 export default mongoose.connect(connectionString, {
   useNewUrlParser: true,
